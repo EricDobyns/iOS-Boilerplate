@@ -35,7 +35,7 @@ extension ViewController {
             switch result {
             case .error(let error):
                 let err = error as? NetworkError
-                Alert().presentAlert(viewController: self, title: "Error", message: err?.localizedDescription, type: .Alert, actions: [("Okay", .default)], completionHandler: nil)
+                Alert().presentAlert(viewController: self, title: "Uh oh!", message: err?.localizedDescription, type: .Alert, actions: [("Okay", .default)], completionHandler: nil)
             case .data(let user):
                 completion(user)
             }

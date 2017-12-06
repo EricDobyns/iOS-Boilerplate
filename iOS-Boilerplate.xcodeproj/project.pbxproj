@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52A850561FD7C160008E0F40 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A850551FD7C160008E0F40 /* AppState.swift */; };
 		52BFAAF71FD4A7CB00FF8D8E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BFAAF61FD4A7CB00FF8D8E /* User.swift */; };
 		52F5A5C41FD4A24E00CC5502 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F5A5C31FD4A24E00CC5502 /* AppDelegate.swift */; };
 		52F5A5CB1FD4A24E00CC5502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F5A5CA1FD4A24E00CC5502 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		52736E751FD4AA3D00C8FCF0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		52736E761FD4AA5F00C8FCF0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		52736E771FD4AA6D00C8FCF0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		52A850551FD7C160008E0F40 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		52BFAAF51FD4A45100FF8D8E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		52BFAAF61FD4A7CB00FF8D8E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		52F5A5C01FD4A24E00CC5502 /* iOS-Boilerplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Boilerplate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 				52F5A5F71FD4A34300CC5502 /* README.md */,
 				52F5A5C31FD4A24E00CC5502 /* AppDelegate.swift */,
 				52F5A5F81FD4A35A00CC5502 /* AppSettings.swift */,
+				52A850551FD7C160008E0F40 /* AppState.swift */,
 				52F5A5F51FD4A32F00CC5502 /* Models */,
 				52F5A5F41FD4A32900CC5502 /* View Controllers */,
 				52FC782E1FD5D666006488E8 /* Common */,
@@ -731,6 +734,7 @@
 				52FC78181FD4DBF5006488E8 /* LoadingIndicator.swift in Sources */,
 				52F5A60C1FD4A3EE00CC5502 /* APIManager.swift in Sources */,
 				52FC78351FD61747006488E8 /* NetworkError.swift in Sources */,
+				52A850561FD7C160008E0F40 /* AppState.swift in Sources */,
 				52F5A60A1FD4A3EA00CC5502 /* AlertTypes.swift in Sources */,
 				52FC78261FD4DDC3006488E8 /* Validate.swift in Sources */,
 				52FC782B1FD4E245006488E8 /* NotificationManager.swift in Sources */,
