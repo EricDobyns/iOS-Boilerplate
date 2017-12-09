@@ -1,8 +1,8 @@
 //
 //  NetworkError.swift
-//  iOS-Boilerplate
 //
-//  Created by Macbook Pro on 12/4/17.
+//  Created by Eric Dobyns & Luis Garcia.
+//  Copyright © 2017 Eric Dobyns & Luis Garcia. All rights reserved.
 //
 
 import Foundation

@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Check if config.json exists
         self.validateConfiguration()
         
-        
+        // Initialize Application State
+        AppState.shared.initialize()
         
         // Setup Initial UI
         self.initializeUI()

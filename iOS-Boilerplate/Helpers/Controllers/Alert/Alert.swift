@@ -1,9 +1,8 @@
 //
 //  Alert.swift
-//  Shrubhub
 //
-//  Created by Eric Dobyns on 3/9/17.
-//  Copyright © 2017 HOTB Software Solutions. All rights reserved.
+//  Created by Eric Dobyns & Luis Garcia.
+//  Copyright © 2017 Eric Dobyns & Luis Garcia. All rights reserved.
 //
 
 import UIKit

@@ -1,9 +1,8 @@
 //
 //  Keychain.swift
-//  skeleton
 //
-//  Created by Eric Dobyns
-//  Copyright © 2015 Eric Dobyns. All rights reserved.
+//  Created by Eric Dobyns & Luis Garcia.
+//  Copyright © 2017 Eric Dobyns & Luis Garcia. All rights reserved.
 //
 
 import Foundation

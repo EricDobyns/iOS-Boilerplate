@@ -8,10 +8,10 @@
 import Foundation
 
 // MARK: - NetworkService
-open class NetworkService: NSObject, URLSessionDelegate {
+open class NetworkService: NSObject {
 
     // Request Resource From Server
-    open func request<A>(resource: NetworkResource<A>, isCancellable: Bool, numberOfRetries: Int, completion: @escaping (NetworkResult<A>) -> ()) {
+    open func request<A>(resource: NetworkResource<A>, completion: @escaping (NetworkResult<A>) -> ()) {
         
         // Return Error - Invalid Resource
         guard let request = URLRequest(resource: resource) else {
@@ -20,12 +20,7 @@ open class NetworkService: NSObject, URLSessionDelegate {
         }
         
         // Create session with configuration
-         let session = URLSession(configuration: URLSessionConfiguration.default)
-        
-        // If cancellable then store the session
-        if isCancellable {
-            AppState.shared.currentSession = session
-        }
+        let session = URLSession.shared
 
         // Print Request Info
         if DEBUG_MODE == true {
@@ -34,16 +29,17 @@ open class NetworkService: NSObject, URLSessionDelegate {
             }
         }
         
+        // Add System Loading Indicator
+        StatusIndicators().showSystemIndicator()
+        
         session.dataTask(with: request) {data, response, error in
+            
+            // Remove System Loading Indicator
+            StatusIndicators().hideSystemIndicator()
             
             // Print Response Info
             if DEBUG_MODE == true {
                 self.printResponse(data: data, response: response, error: error)
-            }
-            
-            // If cancellable then clear the stored session
-            if isCancellable {
-                AppState.shared.currentSession = nil
             }
 
             // Return Error - Passed from server
@@ -84,17 +80,12 @@ open class NetworkService: NSObject, URLSessionDelegate {
             }
         }.resume()
     }
-    
-    // Request Resource In Background
-    
-    // Cancel Request
-    open func cancelRequest() {
-        if let currentSession = AppState.shared.currentSession {
-            currentSession.invalidateAndCancel()
-        }
+
+    // Cancel All Requests
+    open func cancelAllRequests() {
+        URLSession.shared.invalidateAndCancel()
     }
 
-    
     
     // MARK: - Debug Methods
     private func printRequest(url: String, headers: [String: String], body: Data) {

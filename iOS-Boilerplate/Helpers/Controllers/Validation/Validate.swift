@@ -1,9 +1,8 @@
 //
 //  Validate.swift
-//  Lovelab
 //
-//  Created by Laptop on 11/8/16.
-//  Copyright © 2016 EricDobyns. All rights reserved.
+//  Created by Eric Dobyns & Luis Garcia.
+//  Copyright © 2017 Eric Dobyns & Luis Garcia. All rights reserved.
 //
 
 import Foundation

@@ -8,15 +8,15 @@
 // MARK: - API Environment Type
 public enum APIEnvironment: String {
     case local       = "http://localhost:3000"
-    case staging     = "https://trandomuser.me/api/"
+    case staging     = "https://randomuser.me/api/"
     case production  = "https://<insert production url>"
 }
 
 
 // MARK: - API Manager
 public class APIManager {
-    public func fetch<A: Decodable>(endpoint: APIEndpoints, dataType: NetworkDataType, isCancellable: Bool, numberOfRetries: Int, completion: @escaping (NetworkResult<A>) -> ()) {
-        NetworkService().request(resource: NetworkResource<A>(endpoint: endpoint, dataType: dataType), isCancellable: isCancellable, numberOfRetries: numberOfRetries) { result in
+    public func fetch<A: Decodable>(endpoint: APIEndpoints, dataType: NetworkDataType, completion: @escaping (NetworkResult<A>) -> ()) {
+        NetworkService().request(resource: NetworkResource<A>(endpoint: endpoint, dataType: dataType)) { result in
             switch result {
             case .data(let result):
                 completion(NetworkResult<A>.data(result))
@@ -100,12 +100,22 @@ extension APIEndpoints {
 // MARK: - Endpoint Responses
 extension APIManager {
 
-    // Get User As Dictionary
-    public func getUserAsDictionary(completion: @escaping (NetworkResult<[String: Any]>) -> ()) {
-        fetch(endpoint: .getUser, dataType: .generic, isCancellable: false, numberOfRetries: 3) { (result: NetworkResult<[String: Any]>) in
+/*
+    // Get User
+    public func getUser(completion: @escaping (NetworkResult<User>) -> ()) {
+        fetch(endpoint: .getUser, dataType: .encoded) { (result: NetworkResult<User>) in
             completion(result)
         }
     }
+    
+    // Get User As Dictionary
+    public func getUsersAsArray(completion: @escaping (NetworkResult<[String: Any]>) -> ()) {
+        fetch(endpoint: .getUser, dataType: .generic) { (result: NetworkResult<[String: Any]>) in
+            completion(result)
+        }
+    }
+*/
+    
 }
 
 
