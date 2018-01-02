@@ -38,6 +38,9 @@
 		52FC78351FD61747006488E8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC78341FD61747006488E8 /* NetworkError.swift */; };
 		52FC78371FD62599006488E8 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 52FC78361FD62599006488E8 /* config.json */; };
 		772EF644E7E815DFA2196944 /* Pods_iOS_Boilerplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B9F4138E6476D841FEA25E8 /* Pods_iOS_Boilerplate.framework */; };
+		9C4CB5F41FE1DBCA0047BD49 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4CB5F31FE1DBCA0047BD49 /* UIImageView.swift */; };
+		9C4CB5F91FE355650047BD49 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4CB5F81FE355650047BD49 /* NotificationCenterManager.swift */; };
+		9CA7F9FD1FE1015500A5720F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7F9FC1FE1015500A5720F /* Constants.swift */; };
 		D1A0ED52D433B78FFB1B30D5 /* Pods_iOS_BoilerplateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A3C8AE592761D947C10F52 /* Pods_iOS_BoilerplateUITests.framework */; };
 		FCFBB74A576E3E79A9BED3AB /* Pods_iOS_BoilerplateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD85FD9D276143EAD1D1E16 /* Pods_iOS_BoilerplateTests.framework */; };
 /* End PBXBuildFile section */
@@ -107,6 +110,9 @@
 		52FC78361FD62599006488E8 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		5C82B67BFA88B0F80B4A835C /* Pods-iOS-Boilerplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Boilerplate.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Boilerplate/Pods-iOS-Boilerplate.release.xcconfig"; sourceTree = "<group>"; };
 		6E69C5F22D64ED82AF480C70 /* Pods-iOS-BoilerplateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-BoilerplateUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-BoilerplateUITests/Pods-iOS-BoilerplateUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9C4CB5F31FE1DBCA0047BD49 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		9C4CB5F81FE355650047BD49 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
+		9CA7F9FC1FE1015500A5720F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0A3C8AE592761D947C10F52 /* Pods_iOS_BoilerplateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_BoilerplateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95375586CC02677BB4AB3DF /* Pods-iOS-Boilerplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Boilerplate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Boilerplate/Pods-iOS-Boilerplate.debug.xcconfig"; sourceTree = "<group>"; };
 		D9A24E7B9B8872168A1B7757 /* Pods-iOS-BoilerplateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-BoilerplateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-BoilerplateTests/Pods-iOS-BoilerplateTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				52736E751FD4AA3D00C8FCF0 /* README.md */,
+				9CA7F9FC1FE1015500A5720F /* Constants.swift */,
 				52F5A5FD1FD4A39A00CC5502 /* Controllers */,
 				52F5A5FC1FD4A39500CC5502 /* Extensions */,
 				52FC78271FD4DDD0006488E8 /* Subclasses */,
@@ -293,6 +300,7 @@
 				52FC780F1FD4DBCB006488E8 /* Dictionary.swift */,
 				52FC78091FD4DB58006488E8 /* UIColor.swift */,
 				52FC78191FD4DC38006488E8 /* UIImage.swift */,
+				9C4CB5F31FE1DBCA0047BD49 /* UIImageView.swift */,
 				52FC780D1FD4DBA9006488E8 /* UINavigationController.swift */,
 				52FC78281FD4DDEE006488E8 /* UITabBarController.swift */,
 			);
@@ -309,6 +317,7 @@
 				52FB5EAE1FD84B52004C5FAF /* Network Reachability */,
 				52F5A5FE1FD4A3A200CC5502 /* Networking */,
 				52FC781B1FD4DCDF006488E8 /* Notifications */,
+				9C4CB5F71FE355390047BD49 /* Notification Center */,
 				52F5A6001FD4A3AB00CC5502 /* Status Indicators */,
 				52FB5EB31FD8A633004C5FAF /* User Defaults */,
 				52FC78241FD4DDA4006488E8 /* Validation */,
@@ -452,6 +461,14 @@
 				B0A3C8AE592761D947C10F52 /* Pods_iOS_BoilerplateUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C4CB5F71FE355390047BD49 /* Notification Center */ = {
+			isa = PBXGroup;
+			children = (
+				9C4CB5F81FE355650047BD49 /* NotificationCenterManager.swift */,
+			);
+			path = "Notification Center";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -747,6 +764,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CA7F9FD1FE1015500A5720F /* Constants.swift in Sources */,
 				52FC78181FD4DBF5006488E8 /* StatusIndicators.swift in Sources */,
 				52F5A60C1FD4A3EE00CC5502 /* APIManager.swift in Sources */,
 				52FC78351FD61747006488E8 /* NetworkError.swift in Sources */,
@@ -762,6 +780,8 @@
 				52FC78141FD4DBE2006488E8 /* Keychain.swift in Sources */,
 				52F5A6141FD4A3FE00CC5502 /* NetworkParameterEncoding.swift in Sources */,
 				52FC780E1FD4DBA9006488E8 /* UINavigationController.swift in Sources */,
+				9C4CB5F41FE1DBCA0047BD49 /* UIImageView.swift in Sources */,
+				9C4CB5F91FE355650047BD49 /* NotificationCenterManager.swift in Sources */,
 				52F5A6061FD4A3E300CC5502 /* ViewController.swift in Sources */,
 				52FC780A1FD4DB58006488E8 /* UIColor.swift in Sources */,
 				52F5A60E1FD4A3F200CC5502 /* NetworkService.swift in Sources */,

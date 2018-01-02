@@ -23,7 +23,7 @@ struct Alert {
         case Top, Bottom
     }
     
-    
+    //refactor to accept UIViewController?
     func presentAlert(viewController: UIViewController, title: String?, message: String?, type: AlertType, actions: [(String, UIAlertActionStyle)]?, completionHandler: ((Int) -> ())?) {
         
 //        let rootVC = UIApplication.shared.keyWindow?.rootViewController?.childViewControllers.last
@@ -130,4 +130,91 @@ struct Alert {
             // Add Snackbar
         }
     }
+    
+    private func controllerWithDefaultAction(_ title: String?, message: String?, buttonTitle: String?) -> UIAlertController {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        let okay = UIAlertAction(title: buttonTitle, style: .default, handler: nil)
+        alert.addAction(okay)
+        return alert
+    }
+    
+    //should we keep this simplified style of error???
+    func presentErrorAlertWithMessage(errorMessage: String) {
+        let alert = self.controllerWithDefaultAction("Error", message: errorMessage, buttonTitle: "Done")
+        
+        if let rootViewController = UIApplication.shared.keyWindow?.visibleViewController() {
+            DispatchQueue.main.async {
+                rootViewController.present(alert, animated: true, completion: nil)
+            }
+        }
+//        var rootViewController = UIApplication.shared.keyWindow?.rootViewController
+//        if let navigationController = rootViewController as? UINavigationController {
+//            rootViewController = navigationController.viewControllers.first
+//        }
+//        if let tabBarController = rootViewController as? UITabBarController {
+//            rootViewController = tabBarController.selectedViewController
+//        }
+        
+//        DispatchQueue.main.async {
+//            rootViewController?.present(alert, animated: true, completion: nil)
+//        }
+    }
+    
+    
+    
+    func handleAndPresentNetworkErrorAlert(anyType: Any?) {
+        if let error = anyType as? NetworkError {
+            self.presentErrorAlertWithMessage(errorMessage: error.localizedDescription)
+        } else if let errorObject = anyType as? NSError {
+            self.presentErrorAlertWithMessage(errorMessage: errorObject.localizedDescription)
+        } else if let errorJSON = anyType as? [String: Any] {
+            if let errorMessage = errorJSON["error"] as? String {
+                self.presentErrorAlertWithMessage(errorMessage: errorMessage)
+            } else if let errorMessage = errorJSON["err"] as? String {
+                self.presentErrorAlertWithMessage(errorMessage: errorMessage)
+            } else {
+                self.presentErrorAlertWithMessage(errorMessage: ErrorMessage.General)
+            }
+        } else {
+            self.presentErrorAlertWithMessage(errorMessage: ErrorMessage.General)
+        }
+    }
+}
+
+extension UIWindow {
+    
+    func visibleViewController() -> UIViewController? {
+        if let rootViewController: UIViewController = self.rootViewController {
+            return UIWindow.getVisibleViewControllerFrom(vc: rootViewController)
+        }
+        return nil
+    }
+    
+    class func getVisibleViewControllerFrom(vc:UIViewController) -> UIViewController {
+        switch(vc){
+        case is UINavigationController:
+            let navigationController = vc as! UINavigationController
+            return UIWindow.getVisibleViewControllerFrom( vc: navigationController.visibleViewController!)
+            
+        case is UITabBarController:
+            let tabBarController = vc as! UITabBarController
+            return UIWindow.getVisibleViewControllerFrom(vc: tabBarController.selectedViewController!)
+            
+        default:
+            if let presentedViewController = vc.presentedViewController {
+                if let presentedViewController2 = presentedViewController.presentedViewController {
+                    return UIWindow.getVisibleViewControllerFrom(vc: presentedViewController2)
+                }
+                else {
+                    return vc;
+                }
+            }
+            else {
+                return vc;
+            }
+        }
+    }
+    
 }
